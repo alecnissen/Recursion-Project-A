@@ -287,10 +287,32 @@
 
 // so I need to start splitting the array as much as possible, 
 
-// I'm confused on how I can further split the right and left halves 
+// I'm confused on how I can further split the right and left halves further down 
+
+// base case for merge sort, keep recursing until the arr is sorted? 
+
+// how can I split the left side of the array further down 
+
+// I have no fucking clue what to do, 
+
+// I feel like I'm never gonna figure out how to solve this stupid problem 
+
+// fuck merge sort, 
+
+// how can I break the array further, left side, split it and get only the 
+
+// first two numbers. 
+
+// using HOW CAN I split the FUCKING ARRAY!!! 
+
+// so just use the function again, make a variable, then 
 
 function mergeSort(arr) { 
    let sortedArray = []; 
+
+   if (arr.length <= 1) { 
+      return;
+   }
 
    let half = arr.length / 2;
 
@@ -300,12 +322,21 @@ function mergeSort(arr) {
 
    console.log(leftSide);
 
-   console.log(rightSide)
+   console.log(rightSide); 
 
+  let nextSplitLeft = mergeSort(leftSide); 
+
+  console.log(nextSplitLeft);
+
+  let nextSplitRight = mergeSort(rightSide); 
+
+  console.log(nextSplitRight);
 
 } 
 
-mergeSort([3, 5, 8, 7, 5, 4, 3, 2]); 
+// mergeSort([3, 5, 8, 7, 5, 4, 3, 2]);
+
+mergeSort([3, 5, 8, 7, 5, 4]);
 
 
 
@@ -313,13 +344,16 @@ mergeSort([3, 5, 8, 7, 5, 4, 3, 2]);
 
 
 
-var numbers= [1,2,3,4,5,6,7,8,9,10],
-    leftEnd= Math.ceil(numbers.length/2),
-    result= {
-        left: numbers.slice(0,leftEnd),
-        right: numbers.slice(leftEnd) 
 
-      };
+
+
+// var numbers= [1,2,3,4,5,6,7,8,9,10],
+//     leftEnd= Math.ceil(numbers.length/2),
+//     result= {
+//         left: numbers.slice(0,leftEnd),
+//         right: numbers.slice(leftEnd) 
+
+//       };
       
       
       // console.log(result.left);
