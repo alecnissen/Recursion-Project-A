@@ -117,7 +117,7 @@
 //    return arr;
 // }   
 
-// console.log(fibs(13));
+// console.log(fibs(8));
 
 
 
@@ -154,16 +154,174 @@
 // console.log(fibsRec(8));
 
 
-// For the record, recursively:
+
+// function fibsRec(num, arr=[0,1]) {
+//   if(num<=arr.length)
+//     return arr.slice(0, num);
+  
+//   return fibsRec(
+//     num, [...arr, arr.at(-1)+arr.at(-2)])
+  
+// } 
+
+// console.log(fibsRec(8));
 
 
-function fibsRec(num, arr=[0,1]) {
-  if(num<=arr.length)
-    return arr.slice(0, num);
-  
-  return fibsRec(
-    num, [...arr, arr.at(-1)+arr.at(-2)])
-  
+
+
+// merge sort
+
+
+
+
+
+
+// merge sort 
+
+// first divide the array into halfs left and right 
+
+// split the left half of the array, into two parts 
+
+// split the left array of much as possible until left with two numbers 
+
+// array of length 1 is ready to merge, 
+
+// merge them back into sorted order, select the minimum value 
+
+// same process for the right side 
+
+// merge the smaller parts into the larger array, 
+
+// go left to right, append smallest number. 
+
+// repeat process for right side, 
+
+
+// when the values are ready to be merged back into the original array, 
+
+// start on the left side with the first number and compare that number to the 
+
+// first number on the right hand side 
+
+// compare the first number with the numbers on the right side, 
+
+// if smaller than the first number on the left side, then add all the numbers on the right side, 
+
+// summary 
+
+// the basic overall concept of merge sort is to take in an array of certain length 
+
+// split the array as evenly as possible, 
+
+// split into left and right halves, 
+
+// split the left & right halves as evenly as possible, 
+
+// keep splitting till you get to one value 
+
+// once split to one value or length
+
+// if the array is length of 1, it cannot be split, merge them 
+
+// select the smaller value and merge them back into the array 
+
+// same exact process for left and right sides, 
+
+// once ready to merge back into the main array 
+
+// start at first value 
+
+// Select the smallest value from the front of each list 
+
+// (excluding values already in the sorted array) 
+
+// select the smaller value, 
+
+// when one list becomes empty, copy the rest of the values over in correct order, 
+
+// smallest to largest. 
+
+
+// I will attempt to write a little more of a gameplan I will probably need to ask for help, but let me get the ball rolling on this, 
+
+// declare a function 
+
+// function will take in a number, depending on number will be the size of the array 
+
+// I would say some sort of way to split the array evenly into two halves 
+
+// and then split further and further into the array until you get a single value
+
+// somehow use push the smallest values back into the array 
+
+// use some type of method to split the array evently, math.round or / 2
+
+// start with the base array, keep it simple, init an array, loop thru them, 
+
+// push them into the array and console.log them, 
+
+// start with an array, and push values/ add values the array,
+
+// function mergeSort(arr) { 
+//    let array = arr;
+ 
+//    for (let i = 0; i < arr.length; i++) { 
+//      let num = arr[i];
+ 
+//      array.push(num); 
+//    }
+//    console.log(array);
+//  } 
+ 
+//  mergeSort([3, 4, 5, 6, 7, 8, 9]); 
+
+// this will need to solved recurisvely, elimate the loop, 
+
+// try to split the array into left and right halves 
+
+// left half
+
+// google how to split an array into left and right halves 
+
+// ok I split the array into left and right halves, 
+
+// so I need to start splitting the array as much as possible, 
+
+// I'm confused on how I can further split the right and left halves 
+
+function mergeSort(arr) { 
+   let sortedArray = []; 
+
+   let half = arr.length / 2;
+
+   let leftSide = arr.slice(0, half);
+
+   let rightSide = arr.slice(half);
+
+   console.log(leftSide);
+
+   console.log(rightSide)
+
+
 } 
 
-console.log(fibsRec(8));
+mergeSort([3, 5, 8, 7, 5, 4, 3, 2]); 
+
+
+
+
+
+
+
+var numbers= [1,2,3,4,5,6,7,8,9,10],
+    leftEnd= Math.ceil(numbers.length/2),
+    result= {
+        left: numbers.slice(0,leftEnd),
+        right: numbers.slice(leftEnd) 
+
+      };
+      
+      
+      // console.log(result.left);
+      // console.log(result.right);
+
