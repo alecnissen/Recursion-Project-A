@@ -303,40 +303,137 @@
 
 // first two numbers. 
 
-// using HOW CAN I split the FUCKING ARRAY!!! 
+// access the elements in the array by their index 
 
-// so just use the function again, make a variable, then 
+// you need to access them, and somehow compare the indices 
 
+// push the lesser index into the arr 
+
+// I need to access the arr indexes 
+
+// looks like I am doign everything correctly, I Just need to merge 
+
+// the array items back into the sorted array, 
+
+// SO I will format my question, 
+
+// hello everyone, I am pretty stuck on merge sort 
+
+// I am able to split the array into left and right halves 
+
+// based on the logs it looks like it is splitting further into single values 
+
+// now I'm at the point where I am trying to merge the items back in 
+
+// I am just stuck on how I can do that, I feel like I need another function 
+
+// which checks indexes then add the smaller value to the array, am I on the right track there? 
+
+// play around with passing values into another function then calling it 
+
+// how can I compare indices 
+
+// 
+
+// function mergeSort(arr) { 
+//    let sortedArray = []; 
+
+//    if (arr.length <= 1) { 
+//       return arr;
+//    }
+
+//    // console.log(arr[0]);
+
+//    let half = arr.length / 2; 
+
+//    let leftSide = arr.slice(0, half);
+
+//    let rightSide = arr.slice(half);
+
+//    // console.log(leftSide);
+
+//    // console.log(rightSide);
+
+//   let nextSplitLeft = mergeSort(leftSide); 
+
+//   let nextSplitRight = mergeSort(rightSide); 
+
+// //   console.log(nextSplitLeft);
+
+// //   console.log(nextSplitRight);
+
+//   mergeValues(nextSplitLeft, nextSplitRight);
+
+//   return arr;
+  
+// } 
+
+
+// function mergeValues(leftSide, rightSide) { 
+
+//    let sortedArray = []; 
+
+//    let leftArray = leftSide; 
+
+//    let rightArray = rightSide; 
+
+//    // while loop, checking length of the array 
+
+//    while(leftArray.length && rightArray.length) { 
+//       // check indexes here 
+//       if (leftArray[0] <= rightArray[0]) { 
+         
+//          sortedArray.push(leftArray.shift());
+
+//       } else { 
+   
+//          sortedArray.push(rightArray.shift());
+//       } 
+//       console.log(sortedArray);
+//       }
+//       return [...sortedArray, ...leftArray, ...rightArray];
+//    }
+
+
+// mergeSort([3, 5, 8, 7, 2, 4]);
+
+
+
+
+
+// solution 
 function mergeSort(arr) { 
-   let sortedArray = []; 
+   if (arr.length < 2) { 
+      return arr;
+   } 
 
-   if (arr.length <= 1) { 
-      return;
-   }
+   const mid = Math.floor(arr.length / 2)
 
-   let half = arr.length / 2;
+   const leftArr = arr.slice(0, mid); 
 
-   let leftSide = arr.slice(0, half);
-
-   let rightSide = arr.slice(half);
-
-   console.log(leftSide);
-
-   console.log(rightSide); 
-
-  let nextSplitLeft = mergeSort(leftSide); 
-
-  console.log(nextSplitLeft);
-
-  let nextSplitRight = mergeSort(rightSide); 
-
-  console.log(nextSplitRight);
-
+   const rightArr = arr.slice(mid);
+   
+   return merge(mergeSort(leftArr), mergeSort(rightArr)); 
 } 
 
-// mergeSort([3, 5, 8, 7, 5, 4, 3, 2]);
+function merge(leftArr, rightArr) { 
+   const sortedArr = []; 
 
-mergeSort([3, 5, 8, 7, 5, 4]);
+   while(leftArr.length && rightArr.length) { 
+      if (leftArr[0] <= rightArr[0]) { 
+         sortedArr.push(leftArr.shift())
+      } else { 
+         sortedArr.push(rightArr.shift())
+      }
+   } 
+   return [...sortedArr, ...leftArr, ...rightArr];
+} 
+
+// const arr = [8, 20, -2, 4, -6];
+
+const arr = [10, 2, 5, 7, 1, 4];
+
+console.log(mergeSort(arr));
 
 
 
